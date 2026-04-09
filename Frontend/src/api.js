@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "http://localhost:3000/api/create",
+  baseURL: "https://compact-url.onrender.com",
 });
 
 export default api;
