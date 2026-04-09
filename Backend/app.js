@@ -2,18 +2,20 @@ import express from "express";
 import dotenv from "dotenv";
 import connectDB from "./src/config/mongo.js";
 import shorturlRoutes from "./src/routes/shorturl.routes.js";
+import { redirectUrl } from "./src/controllers/shorturl.controller.js";
 import cors from "cors";
 
-dotenv.config('./.env');
+dotenv.config();
 connectDB();
 
 const app = express();
 app.use(cors());
 app.use(express.json());
+
 app.use("/api/create", shorturlRoutes);
 
-// Redirect root URL
-app.get("/", (req, res) => res.send("URL Shortener API Running"));i
+// Safer redirect route
+app.get("/r/:id", redirectUrl);
 
 // Global error handler
 app.use((err, req, res, next) => {
@@ -22,6 +24,5 @@ app.use((err, req, res, next) => {
 });
 
 app.listen(3000, () => {
-    connectDB();
   console.log('Server is running on port 3000');
 });
