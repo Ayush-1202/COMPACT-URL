@@ -1,93 +1,118 @@
+/* Reset */
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f0f2f5;
   margin: 0;
-  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #1e1e1e;
+  color: white;
 }
 
+/* Center container */
 .container {
-  max-width: 600px;
-  margin: 50px auto;
-  padding: 30px;
-  background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 100%;
 }
 
+/* Card box */
+.card {
+  background: #2c2c2c;
+  padding: 40px;
+  border-radius: 12px;
+  text-align: center;
+  width: 350px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+
+/* Heading */
 h1 {
-  color: #333;
   margin-bottom: 20px;
 }
 
+/* Form */
 .url-form {
   display: flex;
-  gap: 10px;
-  margin-bottom: 20px;
+  flex-direction: column;
+  gap: 12px;
 }
 
+/* Inputs */
 .url-form input {
-  flex: 1;
-  padding: 10px;
-  border: 1px solid #ddd;
+  padding: 12px;
   border-radius: 6px;
-  font-size: 16px;
+  border: none;
+  background: #3a3a3a;
+  color: white;
+  outline: none;
 }
 
+/* Button */
 .url-form button {
-  padding: 10px 20px;
-  background-color: #4caf50;
-  color: #fff;
-  border: none;
+  padding: 12px;
   border-radius: 6px;
+  border: none;
+  background: #4CAF50;
+  color: white;
+  font-weight: bold;
   cursor: pointer;
-  font-size: 16px;
   transition: 0.2s;
 }
 
 .url-form button:hover {
-  background-color: #45a049;
+  background: #45a049;
 }
 
+/* Error */
 .error {
   color: red;
+  font-size: 14px;
+}
+
+/* URL List */
+.url-list {
+  margin-top: 20px;
+}
+
+/* URL Box */
+.url-box {
+  background: #3a3a3a;
+  padding: 15px;
+  border-radius: 8px;
   margin-top: 10px;
 }
 
-.url-list {
-  text-align: left;
+/* Label */
+.label {
+  font-size: 13px;
+  color: #aaa;
+  margin-bottom: 6px;
 }
 
-.url-list h2 {
-  color: #555;
-}
-
-.url-item {
+/* URL Row */
+.url-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #f9f9f9;
-  padding: 10px 15px;
-  border-radius: 6px;
-  margin-bottom: 10px;
 }
 
-.url-item a {
+/* Link */
+.url-row a {
+  color: #4ea1ff;
   text-decoration: none;
-  color: #1a73e8;
-  word-break: break-all;
+  font-size: 14px;
 }
 
-.url-item button {
-  background: #1a73e8;
-  color: #fff;
+/* Copy Button */
+.url-row button {
+  background: black;
+  color: white;
   border: none;
-  padding: 5px 12px;
+  padding: 6px 10px;
   border-radius: 6px;
   cursor: pointer;
-  transition: 0.2s;
 }
 
-.url-item button:hover {
-  background: #1558b0;
+.url-row button:hover {
+  background: #222;
 }

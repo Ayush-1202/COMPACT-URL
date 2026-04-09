@@ -4,6 +4,7 @@ import api from "../api";
 function UrlForm({ onAddUrl }) {
   const [longUrl, setLongUrl] = useState("");
   const [error, setError] = useState("");
+  const [customCode, setCustomCode] = useState("");
   const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e) => {
@@ -17,13 +18,24 @@ function UrlForm({ onAddUrl }) {
 
     try {
       setLoading(true);
-      const res = await api.post("/", { url: longUrl });
-      const shortUrlObj = { short_url: res.data.shortUrl, full_url: longUrl };
+
+      const res = await api.post("/", {
+        url: longUrl,
+        customCode: customCode || undefined
+      });
+
+      const shortUrlObj = {
+        short_url: res.data.shortUrl,
+        full_url: res.data.full_url
+      };
+
       onAddUrl(shortUrlObj);
+
       setLongUrl("");
+      setCustomCode("");
+
     } catch (err) {
-      console.error(err);
-      setError("Failed to create short URL");
+      setError(err?.response?.data?.error || "Failed to create short URL");
     } finally {
       setLoading(false);
     }
@@ -38,9 +50,18 @@ function UrlForm({ onAddUrl }) {
         onChange={(e) => setLongUrl(e.target.value)}
         required
       />
+
+      <input
+        type="text"
+        placeholder="Custom short Code"
+        value={customCode}
+        onChange={(e) => setCustomCode(e.target.value)}
+      />
+
       <button type="submit" disabled={loading}>
         {loading ? "Shortening..." : "Shorten"}
       </button>
+
       {error && <p className="error">{error}</p>}
     </form>
   );
