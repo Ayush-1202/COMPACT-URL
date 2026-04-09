@@ -29,7 +29,7 @@ function UrlForm({ onAddUrl }) {
         full_url: res.data.full_url
       };
 
-      onAddUrl(shortUrlObj);
+      onAddUrl(res.data);
 
       setLongUrl("");
       setCustomCode("");

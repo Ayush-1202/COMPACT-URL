@@ -15,8 +15,8 @@ function UrlList({ urls }) {
           <p className="label">Shortened URL</p>
 
           <div className="url-row">
-            <a href={urlObj.short_url} target="_blank" rel="noreferrer">
-              {urlObj.short_url}
+            <a href={urlObj.shortUurl} target="_blank" rel="noreferrer">
+              {urlObj.shortUrl}
             </a>
 
             <button onClick={() => navigator.clipboard.writeText(urlObj.short_url)}>
